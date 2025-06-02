@@ -1,6 +1,6 @@
 Comandos para instalar paquetes{
 
-npm init -y
+    npm init -y
 
     npm i cors
     npm i dotenv
@@ -19,5 +19,5 @@ npm init -y
 Comando para iniciar server en modo desarrollador{
 
     npm run dev
-    
+
 }
