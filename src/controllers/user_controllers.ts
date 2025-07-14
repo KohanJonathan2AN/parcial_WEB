@@ -3,8 +3,8 @@ import { Request, Response } from "express";
 
 const createUser = async (req: Request, res: Response)=> {
     try{
-        const { name, lastName, email } = req.body;
-        const newUser = new User({ name, lastName, email });
+        const { name, email } = req.body;
+        const newUser = new User({ name, email });
         await newUser.save();
         res.status(201).json({
             message: "Usuario creado exitosamente",
@@ -74,11 +74,11 @@ const getUserById = async (req: Request, res: Response) => {
 const updateUser = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
-        const { name, lastName, email } = req.body;
+        const { name, email } = req.body;
 
         const user = await User.findByIdAndUpdate(
             id,
-            { name, lastName, email },
+            { name, email },
             { new: true, runValidators: true }
         );
         if(!user) {
