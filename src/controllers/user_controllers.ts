@@ -19,9 +19,9 @@ const createUser = async (req: Request, res: Response)=> {
     }
 };
 
-const getAllUsersActivate = async (req: Request, res: Response) => {
+const getAllUsers = async (req: Request, res: Response) => {
     try {
-        const users = await User.find({isActive:true});
+        const users = await User.find();
         res.status(200).json({
             message: "Usuarios obtenidos exitosamente",
             data: users,
@@ -33,20 +33,35 @@ const getAllUsersActivate = async (req: Request, res: Response) => {
         });
     }
 };
-const getAllUsersDesactivate = async (req: Request, res: Response) => {
-    try {
-        const users = await User.find({isActive:false});
-        res.status(200).json({
-            message: "Usuarios obtenidos exitosamente",
-            data: users,
-            error: false,
-        });
-    }catch (error:any) {
-        res.status(400).json({
-            error: error.message,
-        });
-    }
-};
+
+// const getAllUsersActivate = async (req: Request, res: Response) => {
+//     try {
+//         const users = await User.find({isActive:true});
+//         res.status(200).json({
+//             message: "Usuarios obtenidos exitosamente",
+//             data: users,
+//             error: false,
+//         });
+//     }catch (error:any) {
+//         res.status(400).json({
+//             error: error.message,
+//         });
+//     }
+// };
+// const getAllUsersDesactivate = async (req: Request, res: Response) => {
+//     try {
+//         const users = await User.find({isActive:false});
+//         res.status(200).json({
+//             message: "Usuarios obtenidos exitosamente",
+//             data: users,
+//             error: false,
+//         });
+//     }catch (error:any) {
+//         res.status(400).json({
+//             error: error.message,
+//         });
+//     }
+// };
 
 const getUserById = async (req: Request, res: Response) => {
     try{
@@ -171,8 +186,9 @@ const desactivateUser = async (req: Request, res: Response) => {
 
 export {
     createUser,
-    getAllUsersActivate,
-    getAllUsersDesactivate,
+    getAllUsers,
+    // getAllUsersActivate,
+    // getAllUsersDesactivate,
     getUserById,
     updateUser,
     activateUser,

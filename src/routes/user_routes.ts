@@ -1,8 +1,9 @@
 import express from 'express';
 import { 
     createUser, 
-    getAllUsersActivate,
-    getAllUsersDesactivate, 
+    getAllUsers,
+    // getAllUsersActivate,
+    // getAllUsersDesactivate, 
     getUserById, 
     updateUser, 
     activateUser,
@@ -12,8 +13,9 @@ import {
 const router = express.Router();
 
 router.post('/', createUser);
-router.get('/Activate', getAllUsersActivate);
-router.get('/Desactivate', getAllUsersDesactivate);
+router.get('/', getAllUsers);
+// router.get('/Activate', getAllUsersActivate);
+// router.get('/Desactivate', getAllUsersDesactivate);
 router.get('/:id', getUserById);
 router.put('/:id', updateUser);
 router.patch('/:id/activate', activateUser);
